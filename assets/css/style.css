@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Sen", sans-serif;
+  color: #eecfa3;
+}
+a {
+  text-decoration: none;
+}
+.main-content {
+  width: 1170px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  font-family: "Playwrite DK Loopet", cursive;
+  color: #eecfa3;
+  font-weight: 600;
+  font-size: 4rem;
+}
+.desc {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 3);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp.line-2 {
+  --line-clamp: 2;
+}
+
+.break-all {
+  word-break: break-all;
+}
+/* ==============header============= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #000044;
+  /* position: sticky;
+  top: -8px; */
+  align-items: center;
+}
+.logo {
+  width: 120px;
+  margin-top: -15px;
+  margin-left: 50px;
+  filter: brightness(150);
+}
+ul {
+  display: flex;
+  margin-right: 15px;
+}
+.nav a {
+  color: #ffffcc;
+  font-family: "Playwrite DK Loopet", cursive;
+  padding: 10px 15px;
+}
+.nav a:hover {
+  background-color: #ffcc99;
+}
+/* ==============hero============= */
+.hero {
+  margin-top: 35px;
+  width: 1170px;
+}
+.hero-list {
+  display: flex;
+  overflow: hidden;
+}
+.hero-list img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+.hero button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #555;
+  position: relative;
+}
+.hero #prev {
+  position: absolute;
+  top: 500px;
+}
+.hero #next {
+  position: absolute;
+  right: 65px;
+  top: 500px;
+}
+.hero button:hover {
+  background-color: #ffffcc;
+}
+/* ==============about us============= */
+.about-us .content {
+  gap: 50px;
+}
+.about-us .content {
+  margin-top: 45px;
+  display: flex;
+  padding: 15px 0;
+}
+.about-us .desc {
+  margin-top: 45px;
+}
+.action {
+  margin-top: 50px;
+}
+.about-us .action .btn {
+  padding: 10px 35px;
+  border: 2px solid #ffcc99;
+  color: currentColor;
+  border-radius: 5px;
+}
+.about-us .action .btn:hover {
+  background-color: #ffcc99;
+  color: #ffffcc;
+}
+.about-us .about {
+  border-radius: 10px;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+/* ==============products============= */
+.products .body {
+  margin-top: 45px;
+}
+.products .title2 {
+  font-size: 3.5rem;
+  font-family: "Playwrite DK Loopet", cursive;
+}
+.products .text {
+  display: flex;
+  justify-content: space-around;
+}
+.products .drinks {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+.products .drinks .mh2 {
+  width: 370px;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 10px;
+}
