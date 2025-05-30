@@ -289,16 +289,17 @@ i {
 }
 
 .sidebar {
-  width: 25%;
+  width: 20%;
   border-right: 1px solid #d17d00;
   text-align: center;
   font-size: 2rem;
-  line-height: 1.5;
+  line-height: 2;
+  position: sticky;
+  top: 50px;
 }
-
-.content {
+.content2 {
   flex: 1;
-  padding: 20px;
+  padding-left: 30px;
 }
 .menu-item {
   display: flex;
@@ -326,6 +327,7 @@ i {
   border-radius: 15px;
   border: 1px solid #e2dfda;
   background: #fff;
+  padding-bottom: 10px;
 }
 .menu-item:hover {
   border: 1px solid transparent;
@@ -336,5 +338,6 @@ i {
 .menu-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  /* justify-content: space-around; */
+  gap: 40px;
 }
