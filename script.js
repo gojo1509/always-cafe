@@ -1,11 +1,11 @@
 const heroList = document.querySelector(".hero-list");
-const images = document.querySelectorAll(".hero-image");
+const images = document.querySelectorAll(".hero-item");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
 let currentIndex = 0;
 
 function updateSlider() {
-  const width = window.innerWidth; // chiều rộng ảnh (100vw)
+  const width = document.querySelector(".hero").offsetWidth;
   heroList.style.transform = `translateX(-${currentIndex * width}px)`;
 }
 
