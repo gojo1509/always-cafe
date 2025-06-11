@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="./assets/css/reset.css" /> -->
+    <link
+      rel="shortcut icon"
+      href="./assets/icon/always.jpg"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&family=Sen&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/order.css" />
+
+    <title>Đặt mua</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("xQXihX8dgzY3t7huO");
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+
+    <!-- content -->
+    <div class="content-dh">
+      <div class="form-container">
+        <h2>🛒 Đặt Hàng Nhiều Sản Phẩm</h2>
+        <form id="orderForm">
+          <div class="form-group">
+            <label for="name">Tên khách hàng</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Nhập tên của bạn"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Sản phẩm</label>
+            <div id="productList">
+              <div class="product-row">
+                <select name="product[]">
+                  <option value="" disabled selected hidden>
+                    Chọn sản phẩm
+                  </option>
+                  <option value="Bia bơ">Bia bơ</option>
+                  <option value="Cam lấp lánh">Cam lấp lánh</option>
+                  <option value="Trà tiên tri">Trà tiên tri</option>
+                  <option value="Nụ hôn thần chết">Nụ hôn thần chết</option>
+                  <option value="Phoenix fire">Phoenix fire</option>
+                  <option value="Phúc lạc dược">Phúc lạc dược</option>
+                  <option value="Chân dược">Chân dược</option>
+                  <option value="Chiếc cốc lửa">Chiếc cốc lửa</option>
+                  <option value="Đa quả dịch">Đa quả dịch</option>
+                  <option value="Hoa quả rừng cấm">Hoa quả rừng cấm</option>
+                  <option value="Thuốc lú">Thuốc lú</option>
+                  <option value="Trà tầm ma">Trà tầm ma</option>
+                  <option value="Dược huyết rồng">Dược huyết rồng</option>
+                  <option value="Dược hồn lìa khỏi xác">
+                    Dược hồn lìa khỏi xác
+                  </option>
+                  <option value="Lời nguyền người cá">
+                    Lời nguyền người cá
+                  </option>
+                  <option value="Nước ép mận xui khiến">
+                    Nước ép mận xui khiến
+                  </option>
+                  <option value="Scarlet bravery">Scarlet bravery</option>
+                  <option value="Cunning emerald">Cunning emerald</option>
+                  <option value="Sapphire wisdom">Sapphire wisdom</option>
+                  <option value="Humble amber">Humble amber</option>
+                </select>
+                <input
+                  type="number"
+                  name="quantity[]"
+                  placeholder="Số lượng"
+                  min="1"
+                  value="1"
+                />
+                <button type="button" onclick="removeProduct(this)">✖</button>
+              </div>
+            </div>
+            <button type="button" id="addProduct">+ Thêm sản phẩm</button>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Địa chỉ giao hàng</label>
+            <textarea
+              id="user_address"
+              name="user_address"
+              rows="3"
+              required
+              placeholder="Nhập địa chỉ của bạn"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="number">Số điện thoại</label>
+            <input
+              type="tel"
+              id="user_phone"
+              name="user_phone"
+              required
+              placeholder="Nhập số điện thoại của bạn"
+            />
+          </div>
+          <input
+            type="email"
+            name="user_email"
+            id="user_email"
+            placeholder="Email của bạn"
+            required
+          />
+          <input type="hidden" name="order_details" id="order_details" />
+          <input type="hidden" name="total_price" id="total_price" />
+
+          <button type="submit">Gửi Đơn Hàng</button>
+        </form>
+      </div>
+    </div>
+    <!-- footer -->
+
+    <script>
+      const productList = document.getElementById("productList");
+      const addProductBtn = document.getElementById("addProduct");
+
+      function addNewProductRow() {
+        const row = document.createElement("div");
+        row.className = "product-row";
+        row.innerHTML = `
+      <select name="product[]">
+        <option value="" disabled selected hidden>Chọn sản phẩm</option>
+        <option value="Bia bơ">Bia bơ</option>
+        <option value="Cam lấp lánh">Cam lấp lánh</option>
+        <option value="Trà tiên tri">Trà tiên tri</option>
+        <option value="Nụ hôn thần chết">Nụ hôn thần chết</option>
+        <option value="Phoenix fire">Phoenix fire</option>
+        <option value="Phúc lạc dược">Phúc lạc dược</option>
+        <option value="Chân dược">Chân dược</option>
+        <option value="Chiếc cốc lửa">Chiếc cốc lửa</option>
+        <option value="Đa quả dịch">Đa quả dịch</option>
+        <option value="Hoa quả rừng cấm">Hoa quả rừng cấm</option>
+        <option value="Thuốc lú">Thuốc lú</option>
+        <option value="Trà tầm ma">Trà tầm ma</option>
+        <option value="Dược huyết rồng">Dược huyết rồng</option>
+        <option value="Dược hồn lìa khỏi xác">Dược hồn lìa khỏi xác</option>
+        <option value="Lời nguyền người cá">Lời nguyền người cá</option>
+        <option value="Nước ép mận xui khiến">Nước ép mận xui khiến</option>
+        <option value="Scarlet bravery">Scarlet bravery</option>
+        <option value="Cunning emerald">Cunning emerald</option>
+        <option value="Sapphire wisdom">Sapphire wisdom</option>
+        <option value="Humble amber">Humble amber</option>
+      </select>
+      <input type="number" name="quantity[]" placeholder="Số lượng" min="1" value="1">
+      <button type="button" onclick="removeProduct(this)">✖</button>
+    `;
+        productList.appendChild(row);
+      }
+      addProductBtn.addEventListener("click", () => {
+        const selects = productList.querySelectorAll(
+          "select[name='product[]']"
+        );
+        const quantities = productList.querySelectorAll(
+          "input[name='quantity[]']"
+        );
+        const lastSelect = selects[selects.length - 1];
+        const lastQuantity = quantities[quantities.length - 1];
+
+        if (selects.length === 0) {
+          addNewProductRow();
+          return;
+        }
+
+        if (!lastSelect.value) {
+          alert("⚠️ Hãy chọn sản phẩm trước khi thêm dòng mới.");
+          return;
+        }
+        if (!lastQuantity.value || Number(lastQuantity.value) <= 0) {
+          alert("⚠️ Vui lòng nhập số lượng lớn hơn 0.");
+          return;
+        }
+
+        addNewProductRow();
+      });
+
+      window.removeProduct = function (button) {
+        button.parentElement.remove();
+      };
+
+      document
+        .getElementById("orderForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const userName = document.getElementById("name").value.trim();
+          const userPhone = document.getElementById("user_phone").value.trim();
+          const userAddress = document
+            .getElementById("user_address")
+            .value.trim();
+          const userEmail = document.getElementById("user_email").value.trim();
+
+          if (userName.length < 2) {
+            alert("⚠️ Tên phải có ít nhất 2 ký tự.");
+            return;
+          }
+
+          if (!/^(0[0-9]{9,10})$/.test(userPhone)) {
+            alert(
+              "⚠️ Số điện thoại không hợp lệ (bắt đầu bằng 0, gồm 10-11 số)."
+            );
+            return;
+          }
+
+          const products = document.querySelectorAll(
+            "select[name='product[]']"
+          );
+          const quantities = document.querySelectorAll(
+            "input[name='quantity[]']"
+          );
+
+          let selectedProducts = [];
+          let totalPrice = 0;
+
+          for (let i = 0; i < products.length; i++) {
+            let product = products[i].value;
+            let quantity = Number(quantities[i].value);
+
+            if (product && quantity > 0) {
+              selectedProducts.push(
+                `${i + 1}. ${product} - Số lượng: ${quantity}`
+              );
+              totalPrice += quantity * 60000;
+            }
+          }
+
+          if (selectedProducts.length === 0) {
+            alert("⚠️ Vui lòng chọn ít nhất 1 sản phẩm.");
+            return;
+          }
+
+          const orderDetails = selectedProducts.join("\n");
+
+          document.getElementById("order_details").value =
+            selectedProducts.join("\n");
+          document.getElementById("total_price").value =
+            totalPrice.toLocaleString("vi-VN") + " ₫";
+          document.getElementById("user_phone").value = userPhone;
+          document.getElementById("user_address").value = userAddress;
+
+          emailjs
+            .sendForm("service_628sr7h", "template_pz46ocp", this)
+            .then(() => {
+              alert("✅ Đơn hàng đã được gửi thành công!");
+              this.reset();
+              while (productList.children.length > 1) {
+                productList.removeChild(productList.lastChild);
+              }
+            })
+            .catch((error) => {
+              alert("❌ Gửi đơn hàng thất bại. Vui lòng thử lại.");
+              console.error(error);
+            });
+        });
+    </script>
+  </body>
+</html>

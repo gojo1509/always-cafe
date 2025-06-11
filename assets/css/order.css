@@ -1,0 +1,132 @@
+:root {
+  --main-color: #b37b32;
+  --accent-color: #405fa7;
+  --bg-color: #fff3e0;
+  --text-color: #4e342e;
+  --danger-color: #dc5d47;
+  --fon-body: "Sen", sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #fff3e0, #f4dbb5, #f6cea6);
+  font-family: var(--fon-body);
+  margin: 0;
+  padding: 0;
+
+  min-height: 750px;
+}
+.content-dh {
+  display: flex;
+  justify-content: center;
+}
+.form-container {
+  background-color: white;
+  padding: 30px 40px;
+  margin-top: 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  transition: all 0.3s ease;
+}
+
+h2 {
+  font-family: "Playwrite DK Loopet", cursive;
+  font-style: italic;
+  text-align: center;
+  font-weight: 300;
+  font-size: 32px;
+  color: var(--main-color);
+  margin-bottom: 25px;
+}
+.product-row input {
+  margin-top: 18px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--main-color);
+  outline: none;
+}
+
+.product-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.product-row select,
+.product-row input {
+  flex: 1;
+}
+
+.product-row button {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.product-row button:hover {
+  background-color: #c0392b;
+}
+
+#addProduct {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+#addProduct:hover {
+  background-color: #203177;
+}
+
+button[type="submit"] {
+  background-color: var(--main-color);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #c96417;
+}
