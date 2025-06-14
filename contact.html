@@ -71,20 +71,68 @@ info@phela.vn</pre>
         </div>
         <div class="box-ct">
           <p class="title-ct">Liên hệ</p>
-          <p class="desc2">
+          <p class="mini-content">
             Vui lòng điền đầy đủ thông tin theo yêu cầu để chúng tôi có thể hỗ
             trợ quý khách tốt nhất.
           </p>
-          <input type="text" placeholder="Họ và tên*" required />
-          <input type="email" placeholder="Email*" required />
-          <textarea
-            style="font-family: Arial, Helvetica, sans-serif"
-            placeholder="Nội dung"
-          ></textarea>
-          <button class="btn-ct">Gửi</button>
+          <div class="form-lien-he">
+            <input type="text" id="name" placeholder="Họ và tên*" required />
+            <input type="email" id="mail" placeholder="Email*" required />
+            <textarea
+              id="noi-dung"
+              style="font-family: Arial, Helvetica, sans-serif"
+              placeholder="Nội dung"
+            ></textarea>
+            <button class="btn-ct" onclick="gui()">Gửi</button>
+            <div id="output" class="result"></div>
+          </div>
         </div>
+        <script>
+          function gui() {
+            const nameInput = document.getElementById("name");
+            const mailInput = document.getElementById("mail");
+            const messageInput = document.getElementById("noi-dung");
+
+            const name = nameInput.value.trim();
+            const mail = mailInput.value.trim();
+            const noidung = messageInput.value.trim();
+
+            const output = document.getElementById("output");
+            output.innerHTML = "";
+
+            // Kiểm tra rỗng
+            if (!name || !mail || !noidung) {
+              output.innerHTML =
+                "<p class='error'>Vui lòng nhập đầy đủ và đúng định dạng thông tin.</p>";
+
+              // Xóa hết nội dung đã nhập
+              nameInput.value = "";
+              mailInput.value = "";
+              messageInput.value = "";
+              return;
+            }
+
+            // Kiểm tra định dạng email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(mail)) {
+              output.innerHTML = "<p class='error'>Email không hợp lệ.</p>";
+
+              // Xóa riêng email
+              mailInput.value = "";
+              return;
+            }
+
+            alert("Gửi thành công!");
+            output.innerHTML = "<p class='success'>Thông tin đã được gửi.</p>";
+
+            setTimeout(() => {
+              location.reload();
+            }, 1500);
+          }
+        </script>
       </div>
     </div>
+
     <!-- footer -->
     <footer>
       <div class="main-content">
@@ -137,7 +185,7 @@ info@phela.vn</pre>
         </div>
       </div>
       <hr />
-      <p id="footer">@2025 bản quyền này thuộc về Always Cafe</p>
+      <p id="footer">&copy;2025 bản quyền này thuộc về Always Cafe</p>
     </footer>
     <!-- order -->
     <div class="order">
