@@ -415,6 +415,7 @@ textarea {
 .btn-ct:hover {
   background-color: #b37b32;
   color: #ffffcc;
+  cursor: pointer;
 }
 .error { 
   color: red;
