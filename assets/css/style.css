@@ -90,6 +90,7 @@ ul {
 }
 .nav a:hover {
   background-color: var(--primary-color);
+  border-radius: 8px;
 }
 /* ==============hero============= */
 .hero {
@@ -98,7 +99,11 @@ ul {
   height: 500px;
   margin-bottom: 50px;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; 
+}
+body {
+  overflow-x: hidden;
+/* fix tràn màn hero */
 }
 .hero-list {
   display: flex;
@@ -248,6 +253,7 @@ button i {
 /* ==============footer============= */
 footer {
   background-color: #000044;
+  
 }
 .footer-list {
   display: flex;
@@ -335,6 +341,7 @@ i {
 .menu-item .desc2 {
   font-size: 2rem;
   margin-top: 30px;
+  text-align: center;
 }
 .menu-item .menu {
   width: 298px;
@@ -376,6 +383,10 @@ i {
   font-weight: 600;
   font-style: italic;
   margin-bottom: 20px;
+  text-align: center;
+}
+.mini-content {
+  text-align: center;
 }
 .box-ct {
   margin-top: 50px;
@@ -411,7 +422,24 @@ textarea {
 .btn-ct:hover {
   background-color: #b37b32;
   color: #ffffcc;
+  cursor: pointer;
 }
+.error { 
+  color: red;
+  text-align: center;
+  margin-top: 30px;
+  font-size: larger;
+}
+.success { 
+  color: green;
+  text-align: center;  
+  margin-top: 30px;
+  font-size: larger;
+ }
+::placeholder {
+  color: #b37b32;
+}
+
 /* ==============Về always cafe============= */
 .aboutus {
   width: 100%;
