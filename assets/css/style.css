@@ -314,12 +314,13 @@ i {
   top: 105px;
   height: fit-content; /* đảm bảo không bị giới hạn */
   background: #fff; /* để không trong suốt nếu có nền */
-  z-index: 9999; /
+  z-index: 9998; /
 }
 .content2 {
   flex: 1;
-  padding-left: 30px;
   border-left: 1px solid #d17d00;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .menu-item {
   display: flex;
@@ -359,7 +360,7 @@ i {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  justify-content: center;
+  justify-content: space-between;
 }
 .content2 .title {
   margin-top: 30px;
@@ -476,7 +477,6 @@ textarea {
   position: fixed;
   right: 30px;
   bottom: 50px;
-  /* border: 1px solid #ccc; */
 }
 .order a {
   color: #dc5d47;
@@ -487,4 +487,33 @@ textarea {
 }
 .order:hover {
   background-color: #dc5d47;
+}
+/* ==============News============= */
+.news-item{
+  width: 370px;
+  margin-top: 50px;
+}
+.news{
+  width: 370px;
+  height: 200px;
+  object-fit: cover;
+}
+.news-list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.news-item .desc{
+  cursor: pointer;
+  margin-top: 10px;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+.title-news{
+  font-family: var(--font-heading);
+  color: #b37b32;
+  font-weight: 600;
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 50px;
 }
