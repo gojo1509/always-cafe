@@ -118,6 +118,7 @@
               placeholder="Nhập số điện thoại của bạn"
             />
           </div>
+          <label for="emailjs">Email</label>
           <input
             type="email"
             name="user_email"
@@ -184,7 +185,6 @@
           addNewProductRow();
           return;
         }
-
         if (!lastSelect.value) {
           alert("⚠️ Hãy chọn sản phẩm trước khi thêm dòng mới.");
           return;
@@ -193,7 +193,6 @@
           alert("⚠️ Vui lòng nhập số lượng lớn hơn 0.");
           return;
         }
-
         addNewProductRow();
       });
 
